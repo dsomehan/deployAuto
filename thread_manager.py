@@ -25,11 +25,12 @@ def start_threads():
         start_thread(key)
 
 
-open_thread = []
-close_thread = []
+
 
 
 def query_state():
+    open_thread = []
+    close_thread = []
     for key in thread_list.keys():
         try:
             data = {'className': cf[key]['classname']}
