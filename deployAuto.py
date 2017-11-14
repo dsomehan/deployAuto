@@ -111,8 +111,8 @@ def backup_deploy_file(tomcat_path, back_path):
     print("备份部署文件")
     if not os.path.exists(back_path):
         os.makedirs(back_path)
-    for file in os.listdir(back_path):
-        clear_cache(back_path + os.sep + file)
+    # for file in os.listdir(back_path):
+    #     clear_cache(back_path + os.sep + file)
     path = tomcat_path + os.sep + 'webapps'
     for file in os.listdir(path):
         dest = path + os.sep + file

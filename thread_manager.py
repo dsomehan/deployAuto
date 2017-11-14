@@ -25,9 +25,6 @@ def start_threads():
         start_thread(key)
 
 
-
-
-
 def query_state():
     open_thread = []
     close_thread = []
