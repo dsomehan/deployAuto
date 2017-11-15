@@ -159,7 +159,7 @@ def main():
             start_up_tomcat(tomcat_path)
     is_start_thread = input("是否启动配置startThread中的线程？（y/n）")
     if is_start_thread == 'y':
-        thread_manager.start_thread()
+        thread_manager.start_threads()
 
 
 if __name__ == '__main__':
