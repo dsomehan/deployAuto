@@ -29,17 +29,17 @@ def query_state():
     open_thread = []
     close_thread = []
     for key in thread_list.keys():
-        try:
+        #try:
             data = {'className': cf[key]['classname']}
             url = 'http://localhost:' + cf[key]['port'] + '/enavpre/service/v1/ThreadManager/queryState'
             print(url)
             r = requests.get(url, data)
             if r.status_code == 303:
-                open_thread[key] = thread_list[key]
+                open_thread.append( key)
             elif r.status_code == 304:
-                close_thread[key] = thread_list[key]
-        except Exception:
-            print("连接tomcat" + cf[key]['port'] + "异常")
+                close_thread.append(key)
+       # except Exception:
+            #print("连接tomcat" + cf[key]['port'] + "异常")
     print("开启中线程为：\n")
     num = 0
     for k in open_thread:
