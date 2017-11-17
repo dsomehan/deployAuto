@@ -35,7 +35,7 @@ def query_state():
             print(url)
             r = requests.get(url, data)
             if r.status_code == 303:
-                open_thread.append( key)
+                open_thread.append(key)
             elif r.status_code == 304:
                 close_thread.append(key)
         except Exception:
@@ -53,7 +53,7 @@ def query_state():
     if input("是否需要改变状态？(y/n)") == 'y':
         arg_q = True
         while arg_q:
-            arg_q = input("请输入指令")
+            arg_q = input("\"exit\"-退出修改模式模式\n\"close,x\"-关闭编号为x的线程\n\"start,x\"-开启编号为x的线程\n请输入指令：")
             if arg_q == "exit":
                 break
             arg_q = arg_q.split(",")
@@ -96,14 +96,15 @@ def start_thread(class_simnple_name):
 def main():
     arg = True
     while arg:
-        arg = input("请输入指令")
+        arg = input("\"startall\"-启动所有线程\n\"query\"-查询已配置线程状态\n\"exit\"-退出程序\n请输入指令：")
         if arg == "exit":
             exit()
         elif arg == "startall":
             start_threads()
         elif arg == "query":
             query_state()
-
+        else:
+            print("参数有误请重新输入")
 
 if __name__ == '__main__':
     main()
